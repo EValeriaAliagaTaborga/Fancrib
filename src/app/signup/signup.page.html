@@ -1,0 +1,47 @@
+<ion-grid>
+  <ion-row justify-content-center>
+    <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+      <div text-center>
+        <h4>Sign up</h4>
+      </div>
+      <div padding>
+        <ion-item>
+          <ion-label color="primary" stacked>E-mail</ion-label>
+          <ion-input required="true" type="email" placeholder="member@something.com"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" stacked>Username</ion-label>
+          <ion-input required="true" type="text" placeholder="ElBarto"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" stacked>Password</ion-label>
+          <ion-input required="true" type="password" placeholder="********"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" stacked>Repeat Password</ion-label>
+          <ion-input required="true" type="password" placeholder="********"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Gender</ion-label>
+          <ion-select>
+            <ion-select-option value="male">Male</ion-select-option>
+            <ion-select-option value="female">Female</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" stacked>Age</ion-label>
+          <ion-input type="number" placeholder="18"></ion-input>
+        </ion-item>
+      </div>
+
+      <div padding>
+        <ion-button size="large" href="/tabs/tab1" expand="block">Sign up</ion-button>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

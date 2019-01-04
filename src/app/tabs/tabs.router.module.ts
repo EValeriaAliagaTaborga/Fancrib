@@ -35,6 +35,24 @@ const routes: Routes = [
           }
         ]
       },
+        {
+            path: 'tab-options',
+            children: [
+                {
+                    path: '',
+                    loadChildren: '../tab-options/tab-options.module#TabOptionsPageModule'
+                }
+            ]
+        },
+        {
+            path: 'search',
+            children: [
+                {
+                    path: '',
+                    loadChildren: '../search/search.module#SearchPageModule'
+                }
+            ]
+        },
       {
         path: '',
         redirectTo: '/tabs/tab1',
