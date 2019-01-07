@@ -1,35 +1,60 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { fandoms } from '../classes/fandoms';
-import { myfandoms } from '../classes/myfandoms';
+import { FandomService } from '../services/fandom.service';
+import {myfandoms} from '../classes/myfandoms';
+
 
 @Component({
   selector: 'app-search',
-  templateUrl: './search.page.html',
+  template: `
+      <ion-header>
+          <ion-toolbar>
+              <ion-title>Search</ion-title>
+          </ion-toolbar>
+      </ion-header>
+
+      <ion-content padding>
+          <ion-toolbar>
+              <ion-searchbar
+                      (ionInput)="getItems($event)">
+              </ion-searchbar>
+          </ion-toolbar>
+
+          <ion-list>
+              <ion-item *ngFor="let fandom1 of myfandomslist" >
+                  <h2>{{fandom1}}</h2><button (click)="setMessage()"><a href="/fandom">Ver</a></button>
+              </ion-item>
+          </ion-list>
+      </ion-content>
+  `,
   styleUrls: ['./search.page.scss'],
 })
 
 export class SearchPage implements OnInit {
-  searchQuery: string = '';
-  selectedFandom = myfandoms;
-  myfandomslist = [];
+    fandomname: string;
+    searchQuery: string = '';
+    myfandomslist;
 
-  constructor() {
+  constructor(public data: FandomService) {
     this.initializeFandoms();
   }
 
   initializeFandoms() {
-    this.myfandomslist = [
-        'Dragon Ball',
-        'Saint Seiya',
-        'Yuri!!! on Ice',
-        'Harry Potter',
-        'Star Wars',
-        'Star vs The forces of Evil',
-        'Steven Universe'
-    ];
+      const newArray = [];
+      myfandoms.forEach(function(obj) {
+          newArray.push(obj.name);
+      });
+      this.myfandomslist = newArray;
+      console.log(newArray);
   }
 
   ngOnInit() {
+      this.data.currentMessage.subscribe(message => this.fandomname = message);
+  }
+
+ setMessage() {
+      this.data.changeMessage('Saint Seiya');
+      console.log('click');
   }
 
     getItems(ev: any) {
@@ -47,11 +72,5 @@ export class SearchPage implements OnInit {
         }
     }
 
-    @Input()
-    set fandomname (fandom: any) {
-      this.selectedFandom = fandom;
-    }
-
-    get fandomname(): any { return this.selectedFandom; }
 
 }
