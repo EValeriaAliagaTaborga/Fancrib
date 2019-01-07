@@ -1,13 +1,22 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Tab Two
+      Twitter News
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <img class="sticky" src="/assets/pika.gif" alt="Avatar">
+  <div style="width: 50%">
   <a class="twitter-timeline" href="https://twitter.com/kubo__yuri?ref_src=twsrc%5Etfw">Tweets by kubo__yuri</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  <!-- You can now use the library component in app.component.html -->
+  <ngx-twitter-timeline
+          [data]="{sourceType: 'url', url: 'https://twitter.com/twitterdev'}"
+          [opts]="{tweetLimit: 5}"
+   style="text-align: center"></ngx-twitter-timeline>
+  </div>
 
 
 </ion-content>

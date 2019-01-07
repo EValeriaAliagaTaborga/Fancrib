@@ -1,1 +1,9 @@
-
+img.sticky {
+  float: right;
+  padding-top: 11%;
+  padding-right: 10%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 40%;
+}

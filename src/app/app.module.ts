@@ -11,11 +11,14 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
   imports: [ 
       FormsModule,
+      NgxTwitterTimelineModule.forRoot(),
       MbscModule,
       BrowserModule,
       IonicModule.forRoot(),
